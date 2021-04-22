@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raycast2D<T> : MonoBehaviour
+public class Raycast2D : MonoBehaviour
 {
     public enum LayerMaskType
     {
@@ -13,7 +13,7 @@ public class Raycast2D<T> : MonoBehaviour
 
     public LayerMaskType layerMaskType;
     public int layerNum;
-    public T touchedObject;
+    public GameObject touchedObject;
 
     private int layerMask;
 
@@ -40,13 +40,11 @@ public class Raycast2D<T> : MonoBehaviour
         }
     }
 
-    public T InputClick()
+    public void InputClick()
     {
         Vector2 t_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(t_Pos, transform.forward, Mathf.Infinity, layerMask);
-        Debug.DrawRay(t_Pos, transform.forward, Color.red, 0.3f);
 
-        if (hit) return hit.transform.GetComponent<T>();
-        else return default(T);
+        if (hit) touchedObject = hit.transform.gameObject;
     }
 }

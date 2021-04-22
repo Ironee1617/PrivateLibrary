@@ -26,6 +26,6 @@ public class Raycast_Editor : Editor
         }
         EditorGUILayout.Space();
 
-        EditorGUILayout.ObjectField("Touched GameObject", rayCast.touchedGameObject, typeof(GameObject), true);
+        //EditorGUILayout.ObjectField("Touched GameObject", rayCast.touchedObject, typeof(GameObject), true);
     }
 }
