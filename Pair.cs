@@ -18,4 +18,9 @@ public class Pair<F, S>
         First = first;
         Second = second;
     }
+    public void SetValue(Pair<F, S> pair) 
+    {
+        First = pair.First;
+        Second = pair.Second;
+    }
 }
